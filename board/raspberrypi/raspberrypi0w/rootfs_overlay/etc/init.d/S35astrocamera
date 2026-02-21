@@ -1,1 +1,37 @@
 #!/bin/sh
+
+WIDTH=1920
+HEIGHT=1080
+SHUTTER=500000
+GAIN=8
+
+export LIBCAMERA_LOG_LEVELS=*:ERROR
+
+case "$1" in
+    start)
+        printf "Starting astrocamera: "
+
+        /usr/bin/rpicam-hello -t 0 \
+            --viewfinder-width $WIDTH --viewfinder-height $HEIGHT \
+            --shutter $SHUTTER --gain $GAIN \
+            --fullscreen --info-text "Exp: %exp Gain: %gain" \
+            --denoise cdn_off \
+            > /dev/null 2>&1 &
+        echo "OK"
+        ;;
+    stop)
+        printf "Stopping astrocamera: "
+        killall rpicam-hello
+        echo "OK"
+        ;;
+    restart)
+        $0 stop
+        sleep 2
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit 0

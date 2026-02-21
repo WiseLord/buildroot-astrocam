@@ -26,3 +26,9 @@ hdmi_group=2
 hdmi_mode=82
 
 dtparam=sd_overclock=100
+
+disable_splash=1
+dtoverlay=disable-bt
+boot_delay=0
+
+initial_turbo=30

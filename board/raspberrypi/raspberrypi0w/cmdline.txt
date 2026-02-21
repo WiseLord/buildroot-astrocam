@@ -1,1 +1,1 @@
-video=HDMI-A-1:1920x1080M@60D root=/dev/mmcblk0p2 rootwait console=tty1 console=ttyAMA0,115200
+video=HDMI-A-1:1920x1080M@60D root=/dev/mmcblk0p2 rootwait console=tty1 console=ttyAMA0,115200 quiet loglevel=3 rootwait fastboot libahci.ignore_sss=1 raid=noautodetect dwc_otg.lpm_enable=0 lpj=4980736

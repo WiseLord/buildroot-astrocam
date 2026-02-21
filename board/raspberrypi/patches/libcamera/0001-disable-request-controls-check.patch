@@ -1,0 +1,17 @@
+diff --git a/src/libcamera/camera.cpp b/src/libcamera/camera.cpp
+index 7c0e93f..2e1e146 100644
+--- a/src/libcamera/camera.cpp
++++ b/src/libcamera/camera.cpp
+@@ -1345,12 +1345,6 @@ int Camera::queueRequest(Request *request)
+ 		return -EINVAL;
+ 	}
+ 
+-	/* Make sure the Request has a valid control list. */
+-	if (request->controls().infoMap() != &controls()) {
+-		LOG(Camera, Error) << "Overwriting Request::controls() is not allowed";
+-		return -EINVAL;
+-	}
+-
+ 	/*
+ 	 * The camera state may change until the end of the function. No locking
+ 	 * is however needed as PipelineHandler::queueRequest() will handle

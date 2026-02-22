@@ -1,1 +1,1 @@
-pi 1000 users 1000 =mpd /home/pi /bin/sh wheel user
+pi 1000 users 1000 =astrocam /home/pi /bin/sh wheel user

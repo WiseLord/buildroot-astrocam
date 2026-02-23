@@ -7,13 +7,15 @@ GAIN=8
 
 export LIBCAMERA_LOG_LEVELS=*:ERROR
 
+# Custom shutter parameters if needed
+# -shutter $SHUTTER --gain $GAIN \
+
 case "$1" in
     start)
         printf "Starting astrocamera: "
 
         /usr/bin/rpicam-hello -t 0 \
             --viewfinder-width $WIDTH --viewfinder-height $HEIGHT \
-            --shutter $SHUTTER --gain $GAIN \
             --fullscreen --info-text "Exp: %exp Gain: %gain" \
             --denoise cdn_off \
             > /dev/null 2>&1 &

@@ -20,3 +20,5 @@ dtoverlay=disable-bt
 boot_delay=0
 
 initial_turbo=30
+
+dtoverlay=dwc2,dr_mode=peripheral
